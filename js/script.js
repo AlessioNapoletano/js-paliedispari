@@ -11,69 +11,50 @@ Pari e Dispari
 
  */
 
-const stringInput = prompt("Inserisci una parola");
+const inputString = prompt("Inserisci una parola");
+isPalindrome(inputString);
 
-const length = stringInput.length;
 
-const array = [];
-const arrayInverse = [];
-let palindrome = false;
+function isPalindrome(stringInput) {
+    const length = stringInput.length;
 
-//console.log("la parola inserità è: " + stringInput);
-//console.log("lunghezza parola: " + length);
+    const array = [];
+    const arrayInverse = [];
+    let palindrome = false;
 
-//Prendo l'array e lo riempio, lettera per lettera con i caratteri provenienti dalla stringa in input
-for (let i = 0; i < length; i++) {
-    array.push(stringInput.substring(i, i + 1));
-}
+    //console.log("la parola inserità è: " + stringInput);
+    //console.log("lunghezza parola: " + length);
 
-//console.log(array);
+    //Prendo l'array e lo riempio, lettera per lettera con i caratteri provenienti dalla stringa in input
+    for (let i = 0; i < length; i++) {
+        array.push(stringInput.substring(i, i + 1));
+    }
 
-for (let i = length; i > 0; i--) {
-    arrayInverse.push(stringInput.substring(i, i - 1));
-}
+    //console.log(array);
 
-//console.log(arrayInverse);
-/*
-if (array.length % 2 === 0) {
-    for (let i = 0; i < array.length; i++) {
-        console.log(arrayInverse[(array.length - 1) - i]);
-        console.log(array[i]);
-        if (array[i] === arrayInverse[(array.length - 1) - i]) {
-            palindrome = true;
-            console.log(palindrome);
-        } else {
-            palindrome = false;
+    //Prendo l'array e lo riempio, lettera per lettera con i caratteri provenienti dalla stringa in input, ma al contrario
+    for (let i = length; i > 0; i--) {
+        arrayInverse.push(stringInput.substring(i, i - 1));
+    }
+
+    //console.log(arrayInverse);
+
+    if (array.length % 2 === 0) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === arrayInverse[i]) {
+                palindrome = true;
+                console.log(palindrome);
+            } else {
+                palindrome = false;
+            }
         }
-    }
 
-    if (palindrome) {
-        console.log("la parola è palindroma");
-    } else {
-        console.log("la parola non è palindroma");
-    }
-} else {
-    console.log("una parola dispari non può essere palindroma")
-}
-
-
-*/
-
-if (array.length % 2 === 0) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === arrayInverse[i]) {
-            palindrome = true;
-            console.log(palindrome);
+        if (palindrome) {
+            console.log("la parola è palindroma");
         } else {
-            palindrome = false;
+            console.log("la parola non è palindroma");
         }
-    }
-
-    if (palindrome) {
-        console.log("la parola è palindroma");
     } else {
-        console.log("la parola non è palindroma");
+        console.log("una parola dispari non può essere palindroma")
     }
-} else {
-    console.log("una parola dispari non può essere palindroma")
 }
