@@ -11,8 +11,13 @@ Pari e Dispari
 
  */
 
-const inputString = prompt("Inserisci una parola");
-isPalindrome(inputString);
+const button = document.querySelector("a.btn");
+
+button.addEventListener("click", function () {
+    const inputString = document.getElementById("word").value;
+    isPalindrome(inputString);
+});
+
 
 
 function isPalindrome(stringInput) {
@@ -43,7 +48,6 @@ function isPalindrome(stringInput) {
     for (let i = 0; i < array.length; i++) {
         if (array[i] === arrayInverse[i]) {
             palindrome = true;
-            console.log(palindrome);
         } else {
             palindrome = false;
         }
@@ -55,3 +59,4 @@ function isPalindrome(stringInput) {
         console.log("la parola non è palindroma");
     }
 }
+
