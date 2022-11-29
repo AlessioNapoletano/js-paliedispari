@@ -13,46 +13,53 @@ Pari e Dispari
 //const inputNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
 const button = document.querySelector("button");
 button.addEventListener("click", function () {
+    
+    //PRENDO il valore di number direttamente dall'input nell'index
     const inputNumber = document.getElementById("number").value;
-    const userNumber = parseInt(inputNumber);
+    //CONVERTO il valore in entrata dall'utente, in un intero a base decimale
+    const userNumber = parseInt(inputNumber, 10);
+
+    //STAMPO l'output nel documento del numero dell'utente
+    const outputUserNumber = document.getElementById("userNumber");
+    outputUserNumber.innerHTML = "l'user ha scelto il numero: " + userNumber;
+
+    //GENERO il numero casuale del pc
     const computerNumber = getRandomNumber();
-    const output = document.getElementById("output");
 
+    //STAMPO l'output nel documento del numero del PC
+    const outputNpcNumber = document.getElementById("npcNumber");
+    outputNpcNumber.innerHTML = "il PC ha scelto il numero: " + computerNumber;
+
+    //PRENDO il valore del campo di testo id="odd-or-even" in cui è specificato se l'utente sceglie pari o dispari
     const choiceOddOrEven = document.getElementById("odd-or-even").value;
-    if(choiceOddOrEven === "pari"){
-        console.log("hai scelto pari");
-    } else {
-        console.log("hai scelto dispari");  
-    }
-    //const choiceOddOrEven = prompt("pari o dispari");
-    let odd;
-    const oddOrEven = isEvenOrOdd(sumNumber(userNumber, computerNumber));
-
-    //controllo che la scelta dell'utente sia pari (in questo caso assegno a winner il valore true)
-    if(choiceOddOrEven === "pari"){
-        odd = true;
-    } else if (choiceOddOrEven === "dispari"){
-        odd = false;
-    } else {
-        console.log("errore non hai digitato ne pari ne dispari, ricarica la pagina");
-    }
     
-    console.log("L'utente ha scelto il numero: " + userNumber);
-    console.log("Il pc ha scelto il numero " + computerNumber);
+    //STAMPO il valore scelto dall'utente
+    const outputOddOrEven = document.getElementById("choice");
+    outputOddOrEven.innerHTML = "l'utente ha scelto: " + choiceOddOrEven;
     
-    console.log("la somma dei due numeri è: " + sumNumber(userNumber, computerNumber));
+    //Assegno alla variabile sum, il valore risultante dalla funzione sumNumber (parametro 1 + parametro 2)
+    const sum = sumNumber(userNumber, computerNumber);
 
-    if(oddOrEven === odd){
-        console.log("ha vinto l'utente");
-        output.innerHTML="hai Vinto";
+    //ASSEGNO alla variabile , il valore derivante dalla funzione isEvenOrOdd che quindi sarà "pari" o "dispari"
+    const oddOrEven = isEvenOrOdd(sum);
+    
+    //ASSEGNO alla variabile, il valore risultato dalla funzione sumNumber()
+    const outputSum = document.getElementById("sum");
+    outputSum.innerHTML = "La somma tra i due numeri è: " + sum;
+
+    //ASSEGNO alla variabile, l'elemento con id="output" per poi stamparci il risultat nell'if
+    const outputResult = document.getElementById("output");
+
+
+    if(choiceOddOrEven === oddOrEven){
+        console.log("HAI VINTO");
+        outputResult.innerHTML= "HAI VINTO";
     } else {
-        console.log("ha vinto il computer");
-        output.innerHTML="hai Perso";
+        console.log("HAI PERSO");  
+        outputResult.innerHTML= "HAI PERSO";
     }
+
 });
-
-
-
 
 
 
@@ -72,15 +79,15 @@ function sumNumber(num1, num2) {
 }
 
 function isEvenOrOdd(number) {
-    let odd;
+    let oddOrEven;
 
     if (number % 2 === 0) {
-        odd = true;
+        oddOrEven = "pari";
     } else {
-        odd = false
+        oddOrEven = "dispari";
     }
 
-    return odd;
+    return oddOrEven;
 }
 
 
