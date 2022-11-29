@@ -10,32 +10,42 @@ Pari e Dispari
 
 
 */
+//const inputNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
 
-const inputNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
-const userNumber = inputNumber;
-const computerNumber = getRandomNumber();
-console.log(userNumber, computerNumber);
+const button = document.querySelector("button");
+button.addEventListener("click", function () {
+    const inputNumber = document.getElementById("number").value;
+    const userNumber = parseInt(inputNumber);
+    const computerNumber = getRandomNumber();
 
-console.log("la somma dei due numeri è: " + sumNumber(userNumber, computerNumber));
+    console.log(userNumber, computerNumber);
+    console.log("la somma dei due numeri è: " + sumNumber(userNumber, computerNumber));
+    isEvenOrOdd(sumNumber(userNumber, computerNumber));
 
-isEvenOrOdd(sumNumber(userNumber, computerNumber));
+});
+
+
+
+
+
+
 
 //---------------------------------------------------------------------------------------------------------------------------
 //                                              FUNZIONI
 
-function getRandomNumber(){
+function getRandomNumber() {
     const randomNumber = (Math.floor(Math.random() * (5 - 1 + 1) + 1));
 
     return randomNumber;
 }
 
-function sumNumber(userNumber, computerNumber){
+function sumNumber(userNumber, computerNumber) {
     const sum = userNumber + computerNumber;
     return sum;
 }
 
-function isEvenOrOdd(number){
-    if(number %2 === 0 ){
+function isEvenOrOdd(number) {
+    if (number % 2 === 0) {
         console.log("il numero è pari");
     } else {
         console.log("il numero è dispari");
