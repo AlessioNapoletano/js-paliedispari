@@ -40,22 +40,18 @@ function isPalindrome(stringInput) {
 
     //console.log(arrayInverse);
 
-    if (array.length % 2 === 0) {
-        for (let i = 0; i < array.length; i++) {
-            if (array[i] === arrayInverse[i]) {
-                palindrome = true;
-                console.log(palindrome);
-            } else {
-                palindrome = false;
-            }
-        }
-
-        if (palindrome) {
-            console.log("la parola è palindroma");
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === arrayInverse[i]) {
+            palindrome = true;
+            console.log(palindrome);
         } else {
-            console.log("la parola non è palindroma");
+            palindrome = false;
         }
+    }
+
+    if (palindrome) {
+        console.log("la parola è palindroma");
     } else {
-        console.log("una parola dispari non può essere palindroma")
+        console.log("la parola non è palindroma");
     }
 }
