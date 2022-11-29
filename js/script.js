@@ -27,6 +27,7 @@ function isPalindrome(stringInput) {
 
     //Prendo l'array e lo riempio, lettera per lettera con i caratteri provenienti dalla stringa in input
     for (let i = 0; i < length; i++) {
+        //substring(valore iniziale, valore finale) --> valori da cui iniziare e finire di prendere un dato carattere, nel primo ciclo subtring(0,1), il primo carattere, e cosi via
         array.push(stringInput.substring(i, i + 1));
     }
 
