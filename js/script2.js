@@ -58,8 +58,8 @@ function getRandomNumber() {
     return randomNumber;
 }
 
-function sumNumber(userNumber, computerNumber) {
-    const sum = userNumber + computerNumber;
+function sumNumber(num1, num2) {
+    const sum = num1 + num2;
     return sum;
 }
 
