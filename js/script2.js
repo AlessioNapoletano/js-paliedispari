@@ -11,17 +11,36 @@ Pari e Dispari
 
 */
 //const inputNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
-
 const button = document.querySelector("button");
 button.addEventListener("click", function () {
     const inputNumber = document.getElementById("number").value;
     const userNumber = parseInt(inputNumber);
     const computerNumber = getRandomNumber();
+    const choiceOddOrEven = prompt("pari o dispari");
+    let odd;
+    const oddOrEven = isEvenOrOdd(sumNumber(userNumber, computerNumber));
 
-    console.log(userNumber, computerNumber);
+    //controllo che la scelta dell'utente sia pari (in questo caso assegno a winner il valore true)
+    if(choiceOddOrEven === "pari"){
+        odd = true;
+    } else if (choiceOddOrEven === "dispari"){
+        odd = false;
+    } else {
+        console.log("errore non hai digitato ne pari ne dispari, ricarica la pagina");
+    }
+
+    console.log("Hai scelto " + choiceOddOrEven);
+    
+    console.log("L'utente ha scelto il numero: " + userNumber);
+    console.log("Il pc ha scelto il numero " + computerNumber);
+    
     console.log("la somma dei due numeri è: " + sumNumber(userNumber, computerNumber));
-    isEvenOrOdd(sumNumber(userNumber, computerNumber));
 
+    if(oddOrEven === odd){
+        console.log("ha vinto l'utente");
+    } else {
+        console.log("ha vinto il computer");
+    }
 });
 
 
@@ -45,11 +64,17 @@ function sumNumber(userNumber, computerNumber) {
 }
 
 function isEvenOrOdd(number) {
+    let odd;
+
     if (number % 2 === 0) {
-        console.log("il numero è pari");
+        odd = true;
     } else {
-        console.log("il numero è dispari");
+        odd = false
     }
+
+    return odd;
 }
+
+
 
 
