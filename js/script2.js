@@ -16,7 +16,15 @@ button.addEventListener("click", function () {
     const inputNumber = document.getElementById("number").value;
     const userNumber = parseInt(inputNumber);
     const computerNumber = getRandomNumber();
-    const choiceOddOrEven = prompt("pari o dispari");
+    const output = document.getElementById("output");
+
+    const choiceOddOrEven = document.getElementById("odd-or-even").value;
+    if(choiceOddOrEven === "pari"){
+        console.log("hai scelto pari");
+    } else {
+        console.log("hai scelto dispari");  
+    }
+    //const choiceOddOrEven = prompt("pari o dispari");
     let odd;
     const oddOrEven = isEvenOrOdd(sumNumber(userNumber, computerNumber));
 
@@ -28,8 +36,6 @@ button.addEventListener("click", function () {
     } else {
         console.log("errore non hai digitato ne pari ne dispari, ricarica la pagina");
     }
-
-    console.log("Hai scelto " + choiceOddOrEven);
     
     console.log("L'utente ha scelto il numero: " + userNumber);
     console.log("Il pc ha scelto il numero " + computerNumber);
@@ -38,8 +44,10 @@ button.addEventListener("click", function () {
 
     if(oddOrEven === odd){
         console.log("ha vinto l'utente");
+        output.innerHTML="hai Vinto";
     } else {
         console.log("ha vinto il computer");
+        output.innerHTML="hai Perso";
     }
 });
 
